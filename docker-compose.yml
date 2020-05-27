@@ -1,0 +1,36 @@
+version: "3.7"
+
+services: 
+    apache:
+        build: 
+            context: ./
+            dockerfile: Dockerfile
+        volumes: 
+            - ./:/var/www/html/
+            - ./apache.conf:/etc/apache2/sites-available/000-default.conf
+        ports: 
+            - 8003:80
+        networks: 
+            - crawler
+    database:
+        container_name: crawler_database
+        image: mysql:5.7.20
+        ports:
+            - 3307:3306
+        environment:
+            MYSQL_ROOT_PASSWORD: root
+            MYSQL_DATABASE: default
+            MYSQL_USER: default
+            MYSQL_PASSWORD: secret
+        volumes:
+            - ./db:/var/lib/mysql
+        networks:
+            - crawler
+            - crawler_database
+
+networks:
+    crawler:
+        name: crawler
+    crawler_database:
+        name: crawler_database
+            
