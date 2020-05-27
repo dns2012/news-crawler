@@ -18,10 +18,10 @@ services:
         ports:
             - 3307:3306
         environment:
-            MYSQL_ROOT_PASSWORD: root
+            MYSQL_ROOT_PASSWORD: crawler2020+
             MYSQL_DATABASE: default
-            MYSQL_USER: default
-            MYSQL_PASSWORD: secret
+            MYSQL_USER: crawler
+            MYSQL_PASSWORD: crawler2020+
         volumes:
             - ./db:/var/lib/mysql
         networks:

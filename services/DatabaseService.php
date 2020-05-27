@@ -4,7 +4,7 @@ namespace Service;
 
 use RedBeanPHP\R;
 
-R::setup( 'mysql:host=crawler_database;dbname=default', 'default', 'secret' );
+R::setup( 'mysql:host=crawler_database;dbname=default', 'crawler', 'crawler2020+' );
 
 class DatabaseService 
 {
